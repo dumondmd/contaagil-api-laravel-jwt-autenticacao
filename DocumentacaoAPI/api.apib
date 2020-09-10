@@ -1,0 +1,125 @@
+FORMAT: 1A
+HOST: http://127.0.0.1:3000/api/
+
+# Api Tool
+
+Esta api tem proteção JWT nas rotas de uso, com exceção na rota de login
+
+
+## Rotas de Login e Logout
+
+### Realizando o login com o usuario 'admin@mail.com' e senha '123456'
+# POST /api/auth/login
+
+    + Request Update JSON Message (application/json)
+    + Response 200 (application/json)
+    + Body
+        {
+            "access_token":"token",
+            "token_type": "bearer",
+            "expires_in": 3600
+        }
+
+### Realizando o logout, invalidando o token que foi gerado no login
+# POST /api/auth/logout
+
+    + Request Update JSON Message (application/json)
+    + Response 200 (application/json)
+    + Bearer
+        {
+            "token" : "token"
+        }
+    + Body
+        {
+            "message": "Deslogado"
+        }
+
+## Rotas do sistema Tool
+
+
+
+### Buscando todos os dados
+# GET /api/tools
+    + Request Update JSON Message (application/json)
+    + Response 200 (application/json)
+    + Bearer
+        {
+            "token" : "token"
+        }
+    + Body
+        {
+            "id": 1,
+            "title": "Dr. Jaqueline Rice III",
+            "link": "http://www.kuhlman.com/est-dignissimos-necessitatibus-vel-perspiciatis-et-et",
+            "description": "Nam laboriosam dolorum ullam occaecati suscipit a voluptatem. Qui officia ab enim illo inventore. Aut voluptas deleniti suscipit optio ducimus.",
+            "tags": "api"
+        }
+   
+
+
+### Buscando por tag Ex.:'api'
+# GET /api/tools?tag={api}
+    + Request Update JSON Message (application/json)
+    + Response 200 (application/json)
+    + Bearer
+        {
+            "token" : "token"
+        }
+    + Body
+        {
+            "id": 1,
+            "title": "Dr. Jaqueline Rice III",
+            "link": "http://www.kuhlman.com/est-dignissimos-necessitatibus-vel-perspiciatis-et-et",
+            "description": "Nam laboriosam dolorum ullam occaecati suscipit a voluptatem. Qui officia ab enim illo inventore. Aut voluptas deleniti suscipit optio ducimus.",
+            "tags": "api"
+        }
+
+### Inserido dados, campos que poderão sere preenchidos (title, link, description, tags)
+# POST /api/tools
+    + Request Update JSON Message (application/json)
+    + Response 200 (application/json)
+    + Bearer
+        {
+            "token" : "token"
+        }
+    + Body
+        {
+            "id": 1,
+            "title": "Dr. Jaqueline Rice III",
+            "link": "http://www.kuhlman.com/est-dignissimos-necessitatibus-vel-perspiciatis-et-et",
+            "description": "Nam laboriosam dolorum ullam occaecati suscipit a voluptatem. Qui officia ab enim illo inventore. Aut voluptas deleniti suscipit optio ducimus.",
+            "tags": "api"
+        }
+
+### Deletando dados Ex.: com o id = 5
+# DELETE /api/tools/{5}
+    + Request Update JSON Message (application/json)
+    + Response 200 (application/json)
+    + Bearer
+        {
+            "token" : "token"
+        }
+    + Body
+
+
+
+
+### Listando todos os usuários
+# GET /api/users
+    + Request Update JSON Message (application/json)
+    + Response 200 (application/json)
+    + Bearer
+        {
+            "token" : "token"
+        }
+    + Body
+        { 
+            "id": 1,
+            "name": "admin@mail.com",
+            "email": "admin@mail.com",
+            "email_verified_at": null,
+            "created_at": "2020-09-09T20:38:34.000000Z",
+            "updated_at": "2020-09-09T20:38:34.000000Z"
+        }    
+
+

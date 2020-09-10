@@ -1,5 +1,26 @@
-## 0: A API deve responder na porta 3000
-php artisan serve --port=3000
+# Instalação
+
+## Pacotes
+
+Pacotes do Composer PHP
+
+```
+composer install
+```
+
+Pacotes do Node.JS
+
+```
+npm install && npm run dev
+```
+
+## Migration
+
+Bando de dados **MySQL**
+
+```
+php artisan migrate
+```
 
 
 #Gere os registros do banco de dados para teste
@@ -7,6 +28,11 @@ php artisan serve --port=3000
 ```
 php artisan db:seed --class=ToolSeeder
 ```
+
+
+## A API deve responde na porta 3000
+php artisan serve --port=3000
+
 
 ## Login no para entrar nas rotas protegidas da api
 
@@ -58,7 +84,4 @@ Get (Listando todos os usuários)
 ```
 http://127.0.0.1:3000/api/users
 ```
-
-
-A API deverá ser documentada utilizando o formato [API Blueprint]
 
